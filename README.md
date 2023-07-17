@@ -10,7 +10,9 @@ stow (-t ~/.config/<application>/ , if configs weren't from home) <application_n
 
 ## How to restore configs
 ```
-Execute the restore script in the ~/.dotfiles/<application_name>/ directory to load the configurations
+git clone git@github.com:JarneClauw/dotfiles.git ~/.dotfiles/
+cd ~/.dotfiles/
+./<program_name>/restore.sh
 ```
 
 ## Checklist before wiping a drive
