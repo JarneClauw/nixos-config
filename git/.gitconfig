@@ -1,0 +1,11 @@
+[user]
+	email = jarne@clauw.eu
+	name = Jarne Clauw
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
