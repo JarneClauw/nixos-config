@@ -1,0 +1,11 @@
+{
+  "foldIndent": false,
+  "showIndentGuide": false,
+  "spellcheckLanguages": [
+    "en-US",
+    "nl"
+  ],
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "./",
+  "showInlineTitle": true
+}
