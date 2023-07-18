@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-echo -n "Restoring bash configurations"
+echo "Restoring bash configurations"
 
 # Find the directory of the dotfiles repo
 repo_directory="$( cd -- "$(dirname "$0")/.." > /dev/null 2>&1 ; pwd -P )"
 
 # Remove the configurations
-rm ~/.bash_logout ~/.bash_profile ~/.bashrc > /dev/null 2>&1
+rm "${HOME}/.bash_logout" "${HOME}/.bash_profile" "${HOME}/.bashrc" > /dev/null 2>&1
 
 # Add the configurations back
-stow --dir $repo_directory --target ~ bash --ignore restore.sh
+stow --ignore restore.sh --dir $repo_directory --target $HOME bash
 
-echo " - Done"
 exit 0
 

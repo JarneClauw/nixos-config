@@ -12,7 +12,7 @@ bash "${flatpak_directory}/installFlatpak.sh" "md.obsidian.Obsidian"
 mkdir -p "${HOME}/cs"
 
 # Remove the configurations
-rm -rf "${HOME}/cs/.obsidian"
+rm -rf "${HOME}/cs/.obsidian" > /dev/null 2>&1
 
 # Add the configurations back
 stow --ignore restore.sh --dir $flatpak_directory --target "${HOME}/cs/" obsidian
