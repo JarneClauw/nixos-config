@@ -16,6 +16,6 @@ cd ~/.dotfiles/
 ```
 
 ## Checklist before wiping a drive
-1. WIP
-2. ...
-3. ...
+1. New programs/images/scripts i want to add?
+2. Make sure the added programs are up to date
+3. Push to the remote!
