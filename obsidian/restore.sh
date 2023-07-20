@@ -2,11 +2,11 @@
 
 echo "Restoring obsidian configuration"
 
-# Find the flatpak directory
-flatpak_directory="$( cd -- "$(dirname "$0")/.." > /dev/null 2>&1 ; pwd -P )"
+# Find the directory of the dotfiles repo
+rep_directory="$( cd -- "$(dirname "$0")/.." > /dev/null 2>&1 ; pwd -P )"
 
 # Install the software if needed
-bash "${flatpak_directory}/installFlatpak.sh" "md.obsidian.Obsidian"
+bash "${repo_directory}/installFlatpak.sh" "md.obsidian.Obsidian"
 
 # Check if the necessary directories are there
 mkdir -p "${HOME}/cs"
@@ -15,7 +15,7 @@ mkdir -p "${HOME}/cs"
 rm -rf "${HOME}/cs/.obsidian" > /dev/null 2>&1
 
 # Add the configurations back
-stow --ignore restore.sh --dir $flatpak_directory --target "${HOME}/cs/" obsidian
+stow --ignore restore.sh --dir "$repo_directory" --target "${HOME}/cs/" obsidian
 
 exit 0
 
