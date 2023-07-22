@@ -3,14 +3,18 @@
 # Setup
 # -----
 repo_directory="$( cd -- "$(dirname "$0")" > /dev/null 2>&1 ; pwd -P )"
+
 log() {
     "${repo_directory}/echoMessage.sh" "$1"
 }
+
 check() {
     if [ $? -ne 0 ]; then
 	"${repo_directory}/echoMessage.sh" -e "$1"
     fi
 }
+
+
 
 # Adjust the dnf settings
 # -----------------------
@@ -76,15 +80,19 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 check "Failed to enable the Flathub remote"
 
 
+
 # Applications
 # ------------
 # TODO dnf required.txt
 # TODO Maybe flatpak
 sudo dnf install git stow tldr fzf lsd neofetch 
 
+
+
 # Configs
 # -------
 # TODO run all my restore scripts
+
 
 
 # WIP
