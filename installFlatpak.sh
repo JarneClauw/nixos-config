@@ -4,7 +4,7 @@
 repo_directory="$( cd -- "$(dirname "$0")" > /dev/null 2>&1 ; pwd -P )"
 
 log() {
-    "${repo_directory}/echoMessage.sh" "$1"
+    "${repo_directory}/echoMessage.sh" -i "$1"
 }
 
 check() {

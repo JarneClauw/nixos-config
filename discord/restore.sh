@@ -15,7 +15,7 @@ repo_directory="$( cd -- "$(dirname "$0")/.." > /dev/null 2>&1 ; pwd -P )"
 
 # Run discord (on the background and independent) configs ... are made
 nohup flatpak run "com.discordapp.Discord" > /dev/null 2>&1 &
-"${repo_directory}/echoMessage.sh" "Wait until the discord app is ready, then enter"
+"${repo_directory}/echoMessage.sh" -w "Wait until the discord app is ready, then enter"
 read userInput
 
 # Install betterdiscordctl
