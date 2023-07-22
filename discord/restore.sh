@@ -6,6 +6,10 @@ repo_directory="$( cd -- "$(dirname "$0")/.." > /dev/null 2>&1 ; pwd -P )"
 # Echoing a descriptive message
 "${repo_directory}/echoMessage.sh" "Restoring discord configuration"
 
+
+
+# INSTALLING
+# ----------
 # Install Discord
 "${repo_directory}/installFlatpak.sh" "com.discordapp.Discord"
 
@@ -26,7 +30,21 @@ sudo betterdiscordctl self-upgrade
 # betterdiscordctl reinstall to update BetterDiscord after a Discord update
 betterdiscordctl --d-install flatpak install
 
-# Add my BetterDiscord configurations back
+
+
+# CONFIGURATIONS 
+# --------------
+# Discord settings itself change on startup ...
+config="${HOME}/.var/app/com.discordapp.Discord/config"
+
+# BetterDiscord Themes & Plugins
+rm -rf "${config}/BetterDiscord/themes/" "${config}/BetterDiscord/plugins/" > /dev/null 2>&1
+stow --ignore "stable" --dir "${repo_directory}/discord/" --target "${config}/BetterDiscord/" BetterDiscord
+
+# BetterDiscord settings
+rm -rf "${config}/BetterDiscord/data/stable/" > /dev/null 2>&1
+stow --ignore "themes|plugins" --dir "${repo_directory}/discord/" --target "${config}/BetterDiscord/data/" BetterDiscord
+
 
 
 exit 0
