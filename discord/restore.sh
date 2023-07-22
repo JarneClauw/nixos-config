@@ -30,7 +30,7 @@ sudo betterdiscordctl self-upgrade
 # betterdiscordctl reinstall to update BetterDiscord after a Discord update
 betterdiscordctl --d-install flatpak install
 
-
+exit 0 #-------------------------------------------------------------------------------
 
 # CONFIGURATIONS 
 # --------------
