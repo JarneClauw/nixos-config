@@ -104,6 +104,7 @@ done < "${repo_directory}/flatpak.txt"
 # Configs
 # -------
 configs=(
+    alacritty
     clamav
     cursors
     discord
