@@ -19,6 +19,7 @@ source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 # Aliases
 alias ls='lsd'
 alias vim='nvim'
+alias scan="${HOME}/scan.sh"
 
 # Keybinds for zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
