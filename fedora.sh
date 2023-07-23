@@ -121,18 +121,12 @@ done
 
 
 
-# WIP
-# ---
-# TODO settings
-# TODO images
-# ...
-
-
-
 # Manuel TO-DO
 # ------------
 "${repo_directory}/echoMessage.sh" -w "Backup: preferences need to be set manually"
 "${repo_directory}/echoMessage.sh" -w "Spotify: run install.sh and restore.sh script manually"
+"${repo_directory}/echoMessage.sh" -w "Gnome extensions: configuring manualy (Blur my Shell, Dash to Dock, Just Perfection, OpenWeather)"
+"${repo_directory}/echoMessage.sh" -w "Settings: Gnome tweaks and settings need to be set manually"
 
 
 

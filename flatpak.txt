@@ -1,1 +1,3 @@
 org.gnome.DejaDup
+org.gnome.Extensions
+com.mattjakeman.ExtensionManager
