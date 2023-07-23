@@ -15,10 +15,12 @@ repo_directory="$( cd -- "$(dirname "$0")/.." > /dev/null 2>&1 ; pwd -P )"
 # Install Spotify
 "${repo_directory}/installFlatpak.sh" "com.spotify.Client"
 # Creates files upon starting
-flatpak run "com.spotify.Client"
+nohup flatpak run "com.spotify.Client" > /dev/null 2>&1
 
 # Install Spicetify
-curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh > /dev/null 2>&1
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+# Remove the log it made
+rm "${repo_directory}/spotify/install.log" > /dev/null 2>&1
 
 
 
