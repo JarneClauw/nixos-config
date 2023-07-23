@@ -1,0 +1,7 @@
+git
+stow
+tldr
+fzf
+lsd
+neofetch
+nodejs

@@ -81,17 +81,42 @@ check "Failed to enable the Flathub remote"
 
 
 
+# Directories
+# -----------
+# Some directories that are always there on my machines
+mkdir -p ~/cs/
+mkdir -p ~/projects/
+
+
+
 # Applications
 # ------------
-# TODO dnf required.txt
-# TODO Maybe flatpak
-sudo dnf install git stow tldr fzf lsd neofetch 
+while read -r package; do
+    "${repo_directory}/installDnf.sh" "$package"
+done < "${repo_directory}/dnf.txt" 
+
+while read -r package; do
+    "${repo_directory}/installFlatpak.sh" "$package"
+done < "${repo_directory}/flatpak.txt"
 
 
 
 # Configs
 # -------
-# TODO run all my restore scripts
+configs=(
+    clamav
+    cursors
+    discord
+    fonts
+    git
+    nvim
+    obsidian
+    zsh
+)
+
+for config in "${config[@]}"; do
+    "${repo_directory}/${config}/restore.sh"
+done
 
 
 
@@ -100,6 +125,15 @@ sudo dnf install git stow tldr fzf lsd neofetch
 # TODO settings
 # TODO images
 # ...
+
+
+
+# Manuel TO-DO
+# ------------
+"${repo_directory}/echoMessage.sh" -w "Backup: preferences need to be set manually"
+"${repo_directory}/echoMessage.sh" -w "Spotify: run install.sh and restore.sh script manually"
+
+
 
 exit 0
 
