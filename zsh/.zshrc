@@ -25,3 +25,4 @@ alias scan="${HOME}/scan.sh"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+export PATH=$PATH:/home/jarne/.spicetify
