@@ -5,6 +5,11 @@
 { config, pkgs, user, ... }:
 
 {
+  ### PROGRAM CONFIGURATIONS ###
+  imports = [
+    
+  ];
+
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";

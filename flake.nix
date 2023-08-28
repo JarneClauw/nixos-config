@@ -22,9 +22,6 @@
       user = "jarne";
       hostName = "nixos";
     in {
-      ###
-      ### All NixOS profiles
-      ###
       nixosConfigurations = {
         jarne = nixpkgs.lib.nixosSystem {
           inherit system;

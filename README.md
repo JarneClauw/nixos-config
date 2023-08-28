@@ -1,21 +1,30 @@
-# dotfiles
-In this repo i will store configs, scripts ... to store my workflow
+# Layout of this repository
+```
+/nixos                  (Only for NixOS systems)
+    configuration.nix   (Basic system configuration)
+    /nixos              (NixOS user, specific configurations, can add other package groups)
+/nix                    (Non-NixOS systems using Nix)
+   /arch                (Nix user, specific configurations, can add other package groups)
+home.nix                (Base home-manager configuration used by nixos and nix users)
 
-## How to add configs
-```
-mv <config01> <config02> <config03> ~/.dotfiles/<application_name>/
-cd ~/.dotfiles/
-stow (-t ~/.config/<application>/ , if configs weren't from home) <application_name>
+/git                    (App config folders, setup.sh / home.nix / config.nix)
+/zsh
+
+packages.txt            (List of base packages)
+packages_group1.txt     (List of extra packages)
+
+install.sh              (Multi OS Package installer script)
+flake.nix
+arch.sh
 ```
 
-## How to restore configs
-```
-git clone git@github.com:JarneClauw/dotfiles.git ~/.dotfiles/
-cd ~/.dotfiles/
-./<program_name>/restore.sh
-```
+# Nix(OS)
+WIP
 
-## Checklist before wiping a drive
-1. New programs/images/scripts i want to add?
-2. Make sure the added programs are up to date
-3. Push to the remote!
+# Arch
+WIP
+
+# Before you wipe!
+1. New programs / images / scripts I want to add ?
+2. Are the existing program configs up to date ?
+3. Is everything pushed to the remote or atleast saved somewhere safe ?
