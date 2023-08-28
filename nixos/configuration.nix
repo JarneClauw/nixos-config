@@ -2,7 +2,7 @@
 ### Basic NixOS system configuration used by all hosts
 ###
 
-{ config, pkgs, user, hostName, ... }:
+{ pkgs, user, hostName, ... }:
 
 {
   ### NETWORK ###

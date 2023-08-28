@@ -5,6 +5,7 @@
 	defaultBranch = main
 [core]
 	editor = nvim
+	excludesFile = ~/.gitignore
 [push]
 	autoSetupRemote = true
 [pull]

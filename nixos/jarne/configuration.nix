@@ -2,14 +2,7 @@
 ### NixOS system configuration specific to the "jarne" profile
 ###
 
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix	# Include the hardware configuration
-    ];
-
   ### BOOTLOADER ###
   boot.loader = {
     timeout = 3;			# Wait 3s before auto selection

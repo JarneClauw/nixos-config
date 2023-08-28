@@ -38,8 +38,8 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d /media/data 0777 root root" 	# Give everyone rwx access
-    "L+ %h/data - - - - /media/data" 	# Add a symlink for the data partition
+    "d /media/data 0777 root root" 		# Give everyone rwx access
+    "L+ /home/jarne/data - - - - /media/data" 	# Add a symlink for the data partition
   ];
 
   swapDevices = [

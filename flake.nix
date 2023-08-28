@@ -30,7 +30,8 @@
 	  };
 	  modules = [
 	    ./nixos/configuration.nix
-            ./nixos/jarne
+            ./nixos/jarne/configuration.nix
+	    ./nixos/jarne/hardware-configuration.nix
 
 	    home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
@@ -40,7 +41,7 @@
 	      };
 	      home-manager.users.${user} = {
                 imports = [
-                  ./nixos/home.nix
+                  ./home.nix
 		  ./nixos/jarne/home.nix
 		];
 	      };

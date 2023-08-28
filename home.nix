@@ -7,7 +7,7 @@
 {
   ### PROGRAM CONFIGURATIONS ###
   imports = [
-    
+    ./git/home.nix 
   ];
 
   home = {

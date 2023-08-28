@@ -2,7 +2,7 @@
 ```
 /nixos                  (Only for NixOS systems)
     configuration.nix   (Basic system configuration)
-    /nixos              (NixOS user, specific configurations, can add other package groups)
+    /jarne              (NixOS user, specific configurations, can add other package groups)
 /nix                    (Non-NixOS systems using Nix)
    /arch                (Nix user, specific configurations, can add other package groups)
 home.nix                (Base home-manager configuration used by nixos and nix users)
@@ -12,6 +12,7 @@ home.nix                (Base home-manager configuration used by nixos and nix u
 
 packages.txt            (List of base packages)
 packages_group1.txt     (List of extra packages)
+packages_flatpak.txt    (Flatpaks separate)
 
 install.sh              (Multi OS Package installer script)
 flake.nix
