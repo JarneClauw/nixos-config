@@ -32,5 +32,9 @@
 	{ name = "romkatv/powerlevel10k"; tags = [ "as:theme" ]; }
       ];
     };
+
+    initExtra = ''
+      source ~/.p10k.zsh
+    '';
   };
 }
