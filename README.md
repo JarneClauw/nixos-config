@@ -19,6 +19,18 @@ flake.nix
 arch.sh
 ```
 
+# Disk layout
+```
+PARTITION NAME          SIZE        FILESYSTEM  LABEL
+-----------------------------------------------------
+EFI System Partition    1 GiB       fat32       esp
+Nixos                   250 GiB     ext4        nixos
+Arch                    250 GiB     ext4        arch
+Data                    250 GiB     ext4        data
+free
+swap                    8 GiB       linux-swap  swap
+```
+
 # Nix(OS)
 WIP
 

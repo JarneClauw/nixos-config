@@ -7,7 +7,9 @@
 {
   ### PROGRAM CONFIGURATIONS ###
   imports = [
-    ./git/home.nix 
+    ./git/home.nix
+    ./alacritty/home.nix
+    ./zsh/home.nix
   ];
 
   home = {
@@ -20,6 +22,7 @@
       alacritty
       tldr
       fzf
+      lsd
 
       ### CODING ###
       git
