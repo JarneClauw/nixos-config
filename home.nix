@@ -10,6 +10,7 @@
     ./git/home.nix
     ./alacritty/home.nix
     ./zsh/home.nix
+    ./discord/overlay.nix
   ];
 
   home = {
@@ -35,7 +36,7 @@
       # mail
       libreoffice
       obsidian
-      discord
+      discord # Overlay is used to keep it up to date
       spotify
       spicetify-cli
 
