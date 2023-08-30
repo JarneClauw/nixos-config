@@ -18,29 +18,4 @@
       efiSysMountPoint = "/boot";
     };
   };
-
-  ### ENVIRONMENT ###
-  services.xserver = {
-    # Enabling X11 windowing system
-    enable = true;
-
-    # Keyboard layout
-    layout = "be";
-    xkbVariant = "nodeadkeys";
-
-    # Touchpad
-    libinput.enable = true;
-    libinput.touchpad.tapping = true;
-
-    # Enable auto numlock
-    # Not available for gdm
-
-    # GNOME Desktop Environment
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-  
-  ### KEYMAP ###
-  # Keyboard layout: See Environment
-  console.keyMap = "be-latin1"; 	# Console keymap
 }

@@ -8,7 +8,7 @@
   ### NETWORK ###
   networking.hostName = "${hostName}";
   networking.networkmanager.enable = true;
-
+  
   ### TIME ZONE & LOCALE ###
   time.timeZone = "Europe/Brussels";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -48,6 +48,30 @@
     extraGroups = [ "wheel" "networkmanager" "video" "audio" "lp" "scanner" ];
     # No user packages, controlled with home-manager
   };
+
+  ### ENVIRONMENTS ###
+  services.xserver = {
+    enable = true;
+
+    # Default desktop environment
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  ### KEYMAP ###
+  services.xserver = { layout = "be"; xkbVariant = "nodeadkeys"; };
+  console.keyMap = "be-latin1";
+
+  ### TOUCHPAD ###
+  services.xserver.libinput = { enable = true; touchpad.tapping = true; };
+
+  ### NUMLOCK ###
+  # Numlock On on startup
+
+  ### FONTS ###
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "Hack" ]; })
+  ];
 
   ### PACKAGES ###
   nixpkgs.config.allowUnfree = true;
