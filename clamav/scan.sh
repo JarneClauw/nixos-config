@@ -7,7 +7,7 @@
 # scan -r                   : Remove the infected files
 
 log() {
-    echo -e "\e[1;32mINFO: ${1}\e[0m"
+    echo -e "\e[1;36mINFO: ${1}\e[0m"
 }
 
 showHelp() {
@@ -58,4 +58,3 @@ if [ -e "$1" ] && ( [ -f "$1" ] || [ -d "$1" ] ); then
 fi
 
 exit 0
-
