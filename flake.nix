@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
     let
       system = "x86_64-linux";
 
@@ -23,26 +23,26 @@
       hostName = "nixos";
     in {
       nixosConfigurations = {
-        jarne = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           inherit system;
 	  specialArgs = {
             inherit inputs pkgs user hostName;
 	  };
 	  modules = [
-	    ./nixos/configuration.nix
-            ./nixos/jarne/configuration.nix
-	    ./nixos/jarne/hardware-configuration.nix
+	    ./hosts/configuration.nix
+            ./hosts/nixos/configuration.nix
+	    ./hosts/nixos/hardware-configuration.nix
 
 	    home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.extraSpecialArgs = {
-                inherit pkgs user hostName;
+                inherit inputs pkgs user hostName;
 	      };
 	      home-manager.users.${user} = {
                 imports = [
-                  ./home.nix
-		  ./nixos/jarne/home.nix
+                  ./hosts/home.nix
+		  ./hosts/nixos/home.nix
 		];
 	      };
 	    }

@@ -1,5 +1,5 @@
 ###
-### Discord overlay (Can't use if it's not the latest)
+### Discord overlay (Can't use it if it's not the latest version)
 ###
 
 { nixpkgs, ... }:

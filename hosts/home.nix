@@ -7,11 +7,12 @@
 {
   ### PROGRAM CONFIGURATIONS ###
   imports = [
-    ./git/home.nix
-    ./alacritty/home.nix
-    ./zsh/home.nix
-    ./discord/overlay.nix
-    ./clamav/home.nix
+    ../git/home.nix
+    ../alacritty/home.nix
+    ../zsh/home.nix
+    ../clamav/home.nix
+
+    ../overlays/discord.nix
   ];
 
   home = {

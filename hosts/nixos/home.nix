@@ -1,5 +1,5 @@
 ###
-### Home-manager configuration specific to the "jarne" profile
+### Home-manager configuration specific to the default nixos profile
 ###
 
 { pkgs, ... }:

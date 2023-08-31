@@ -1,5 +1,5 @@
 ###
-### NixOS system configuration specific to the "jarne" profile
+### NixOS system configuration specific to the default nixos profile
 ###
 
 {
