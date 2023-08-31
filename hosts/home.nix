@@ -11,6 +11,7 @@
     ../alacritty/home.nix
     ../zsh/home.nix
     ../clamav/home.nix
+    ../obsidian/home.nix
 
     ../overlays/discord.nix
   ];
@@ -48,7 +49,6 @@
       gparted
 
       ### OTHER ###
-      virtualbox
     ];
 
     ### OTHER ###
