@@ -2,6 +2,9 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
+  padding:
+    x: 10
+    y: 10
   title: Alacritty
   opacity: 1.0
 

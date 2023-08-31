@@ -14,6 +14,7 @@
     aliases = {
       discard = "restore";
       unstage = "restore --staged";
+      undo = "reset --soft HEAD~1";
       graph = "log --graph";
     };
     
