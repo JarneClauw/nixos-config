@@ -1,22 +1,20 @@
 # Layout of this repository
 ```
-/nixos                  (Only for NixOS systems)
+/hosts
     configuration.nix   (Basic system configuration)
-    /jarne              (NixOS user, specific configurations, can add other package groups)
-/nix                    (Non-NixOS systems using Nix)
-   /arch                (Nix user, specific configurations, can add other package groups)
-home.nix                (Base home-manager configuration used by nixos and nix users)
+    home.nix            (Basic home-manager configuration)
+    /nixos              (Nixos user, specific configuration)
+    /arch               (Arch user, specific configuration)
 
-/git                    (App config folders, setup.sh / home.nix / config.nix)
-/zsh
+/nix                    (Package Manager configuration)
+/<package>              (Package configuration)
+/overlays               (Overlays for certain packages)
+/shells                 (Shell environments)
 
-packages.txt            (List of base packages)
-packages_group1.txt     (List of extra packages)
-packages_flatpak.txt    (Flatpaks separate)
+packages.nix            (List of base packages)
+packages_gaming.nix     (List of packages needed for gaming)
 
-install.sh              (Multi OS Package installer script)
 flake.nix
-arch.sh
 ```
 
 # Disk layout

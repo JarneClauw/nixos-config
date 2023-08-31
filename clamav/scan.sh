@@ -7,7 +7,7 @@
 # scan -r                   : Remove the infected files
 
 log() {
-    echo -e "\e[1;32m${1}\e[0m"
+    echo -e "\e[1;32mINFO: ${1}\e[0m"
 }
 
 showHelp() {
@@ -19,13 +19,9 @@ showHelp() {
 }
 
 scan() {
-    log "Updating signatures ..."
-    sudo systemctl stop clamav-freshclam
-    sudo freshclam
-    sudo systemctl enable clamav-freshclam --now
-    
+    # Updating freshclam should be done automatically
     log "Scanning ${1} ..."
-    sudo clamscan --bell --move=/home/jarne/infected -i -r $1
+    sudo clamscan --bell --move=/tmp/infected -i -r $1
 }
 
 showLogs() {

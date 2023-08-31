@@ -11,6 +11,7 @@
     ./alacritty/home.nix
     ./zsh/home.nix
     ./discord/overlay.nix
+    ./clamav/home.nix
   ];
 
   home = {

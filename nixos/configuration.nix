@@ -5,6 +5,10 @@
 { pkgs, user, hostName, ... }:
 
 {
+  imports = [
+    ../clamav/configuration.nix
+  ];
+
   ### NETWORK ###
   networking.hostName = "${hostName}";
   networking.networkmanager.enable = true;
@@ -97,6 +101,9 @@
   };
 
   ### OTHER ###
+  # Enabling cron services
+  services.cron.enable = true;
+
   # Version of the options used, will not update the system!
   # Only change if the options can be migrated!
   system.stateVersion = "23.05";
