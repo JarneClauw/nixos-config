@@ -15,9 +15,14 @@
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
     };
+
+    # Spicetify (Modifies Spotify)
+    spicetify = {
+      url = "github:the-argus/spicetify-nix";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-vscode-extensions, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nix-vscode-extensions, spicetify, ... }@inputs: 
     let
       system = "x86_64-linux";
       
@@ -46,7 +51,7 @@
               home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.extraSpecialArgs = {
-                inherit inputs pkgs user hostName vscode-extensions;
+                inherit inputs pkgs user hostName vscode-extensions spicetify;
 	      };
 	      home-manager.users.${user} = {
                 imports = [

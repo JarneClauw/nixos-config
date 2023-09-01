@@ -14,6 +14,7 @@
     ../obsidian/home.nix
     # ../firefox/home.nix Does # not fully work yet
     ../vscodium/home.nix
+    ../spicetify/home.nix
 
     ../overlays/discord.nix
   ];
@@ -42,7 +43,6 @@
       libreoffice
       obsidian
       discord # Overlay is used to keep it up to date
-      spotify
       spicetify-cli
 
       ### UTILITIES ###
