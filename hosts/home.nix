@@ -43,7 +43,7 @@
       libreoffice
       obsidian
       discord # Overlay is used to keep it up to date
-      spicetify-cli
+      # Spotify and Spicetify installed with other repo
 
       ### UTILITIES ###
       rsync
