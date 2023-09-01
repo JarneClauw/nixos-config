@@ -12,6 +12,8 @@
     ../zsh/home.nix
     ../clamav/home.nix
     ../obsidian/home.nix
+    # ../firefox/home.nix Does # not fully work yet
+    ../vscodium/home.nix
 
     ../overlays/discord.nix
   ];
@@ -36,7 +38,7 @@
       ### STANDARD ###
       firefox
       brave
-      # mail
+      betterbird
       libreoffice
       obsidian
       discord # Overlay is used to keep it up to date
