@@ -1,20 +1,33 @@
-# Layout of this repository
-```
-/hosts
-    configuration.nix   (Basic system configuration)
-    home.nix            (Basic home-manager configuration)
-    /nixos              (Nixos user, specific configuration)
-    /arch               (Arch user, specific configuration)
+# NixOS
+WIP
 
-/nix                    (Package Manager configuration)
-/<package>              (Package configuration)
-/overlays               (Overlays for certain packages)
+# Non-NixOS
+WIP
+
+# Contents of this repository
+```
+/profiles               (Profiles available in the flake)
+    configuration.nix   (Basic NixOS system configuration)
+    home.nix            (Basic Home Manager configuration)
+    nix.nix             (Nix configuration)
+    /nixos
+    /arch
+
+/modules                (NixOS system configurations and services)
+    packages.nix        (System packages)
+    sound.nix           (Sound configuration)
+    xmonad.nix          (Xmonad system configuration)
+
+/programs               (Home Manager programs)
+    base.nix            (Base user packages)
+    xmonad.nix          (Packages needed for xmonad)
+    /<package>          (Git installation and configuration)
+
+/lib                    (Functions to make my life easier)
+
 /shells                 (Shell environments)
 
-packages.nix            (List of base packages)
-packages_gaming.nix     (List of packages needed for gaming)
-
-flake.nix
+/secrets                (Storing secrets)
 ```
 
 # Disk layout
@@ -28,14 +41,3 @@ Data                    250 GiB     ext4        data
 free
 swap                    8 GiB       linux-swap  swap
 ```
-
-# Nix(OS)
-WIP
-
-# Arch
-WIP
-
-# Before you wipe!
-1. New programs / images / scripts I want to add ?
-2. Are the existing program configs up to date ?
-3. Is everything pushed to the remote or atleast saved somewhere safe ?
