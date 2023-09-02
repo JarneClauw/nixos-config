@@ -1,5 +1,12 @@
 # NixOS
-WIP
+```
+# Update the flake
+nix flake update
+
+# Switch to the new generation
+cd <here>
+sudo nixos-rebuild switch --flake .#<profile>
+```
 
 # Non-NixOS
 WIP
@@ -20,8 +27,8 @@ WIP
 
 /programs               (Home Manager programs)
     base.nix            (Base user packages)
-    xmonad.nix          (Packages needed for xmonad)
-    /<package>          (Git installation and configuration)
+    xmonad.nix          (Packages needed for Xmonad)
+    /<package>          (<package> installation and configuration)
 
 /lib                    (Functions to make my life easier)
 
@@ -38,6 +45,6 @@ EFI System Partition    1 GiB       fat32       esp
 Nixos                   250 GiB     ext4        nixos
 Arch                    250 GiB     ext4        arch
 Data                    250 GiB     ext4        data
-free
-swap                    8 GiB       linux-swap  swap
+Free
+Swap                    8 GiB       linux-swap  swap
 ```
