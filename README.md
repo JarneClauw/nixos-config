@@ -1,12 +1,6 @@
 # NixOS
-```
-# Update the flake
-nix flake update
-
-# Switch to the new generation
-cd <here>
-sudo nixos-rebuild switch --flake .#<profile>
-```
+Update the my flake inputs: ``nix flake update``
+Switch to the new generation: ``sudo nixos-rebuild switch --flake .#<profile>``
 
 # Non-NixOS
 WIP
@@ -17,8 +11,8 @@ WIP
     configuration.nix   (Basic NixOS system configuration)
     home.nix            (Basic Home Manager configuration)
     nix.nix             (Nix configuration)
-    /nixos
-    /arch
+    /neso
+    /atlas
 
 /modules                (NixOS system configurations and services)
     packages.nix        (System packages)
