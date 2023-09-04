@@ -1,6 +1,12 @@
 # NixOS
-Update the my flake inputs: ``nix flake update``
-Switch to the new generation: ``sudo nixos-rebuild switch --flake .#<profile>``
+Update the my flake inputs:
+```
+nix flake update
+```
+Switch to the new generation: 
+```
+sudo nixos-rebuild switch --flake .#<profile>
+```
 
 # Non-NixOS
 WIP
