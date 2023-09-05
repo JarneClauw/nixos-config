@@ -2,23 +2,22 @@
 ### Firefox configuration
 ###
 
-{
+inputs: {
   programs.firefox = {
     enable = true;
-    profiles."jarne" = {
+    profiles.${inputs.user} = {
       isDefault = true;
       search.default = "Google";
       
-#      extensions = [
-#        ublock-origin
-#	youtube-recommended-videos
-#  	bitwarden
-#      ];
+      extensions = with inputs.pkgs.nur.repos.rycee.firefox-addons; [
+        ublock-origin
+	youtube-recommended-videos
+  	bitwarden
+      ];
 
       bookmarks = [
 	{
           name = "UGent";
-          toolbar = true;
 	  bookmarks = [
             { name = "Ufora"; url = "https://ufora.ugent.be/d2l/home"; }
 	    { name = "OASIS"; url = "https://oasis.ugent.be/oasis-web/inbox/home"; }
@@ -29,7 +28,6 @@
 	}
 	{
           name = "Projects";
-	  toolbar = true;
 	  bookmarks = [
             { name = "GitHub"; url = "https://github.com/JarneClauw"; }
 	    { name = "Advent of Code"; url = "https://adventofcode.com"; }
@@ -52,7 +50,6 @@
 	}
 	{
           name = "Entertainement";
-	  toolbar = true;
 	  bookmarks = [
             { name = "YouTube"; url = "https://youtube.com"; }
 	    { name = "Netflix"; url = "https://netflix.com/browse"; }
@@ -63,7 +60,6 @@
 	}
 	{
           name = "Linux";
-	  toolbar = true;
 	  bookmarks = [
             { name = "Nix Package Manager"; url = "https://search.nixos.org"; }
 	    { name = "NUR"; url = "https://nur.nix-community.org/"; }
@@ -77,11 +73,10 @@
 	}
 	{
           name = "Library";
-          toolbar = true;
 	  bookmarks = [
             { name = "Gamma for every coder"; url = "https://blog.johnnovak.net/2016/09/21/what-every-coder-should-know-about-gamma/"; }
 	    { name = "Qiskit"; url = "https://qiskit.org/"; }
-	    { name = "PhotoEditor"; url = "https://photopea.com"; }
+	    { name = "Photo Editor"; url = "https://photopea.com"; }
 	    { name = "12ft Ladder"; url = "https://12ft.io"; }
 	  ];
 	}

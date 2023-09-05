@@ -18,12 +18,16 @@ inputs: {
     tldr
     fzf
     lsd
+
     neovim
     brave
     betterbird
     libreoffice
     obsidian
+
     rsync
     gparted
+    usbutils
+    pciutils
   ];
 }
