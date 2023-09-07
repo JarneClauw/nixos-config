@@ -27,9 +27,10 @@ inputs: {
   ### ENVIRONMENTS ###
   services.xserver.enable = true;
   services.xserver.displayManager = {
-    defaultSession = "gnome";
-    lightdm.enable = true;
-    lightdm.greeters.slick.enable = true;
+    gdm.enable = true;
+    #defaultSession = "gnome";
+    #lightdm.enable = true;
+    #lightdm.greeters.slick.enable = true;
   };
 
   ### OTHER ###

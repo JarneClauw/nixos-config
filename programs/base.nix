@@ -7,11 +7,12 @@ inputs: {
     ./alacritty
     ./git
     ./vscodium
-    ./firefox
+    #./firefox
     ./discord
     ./spicetify
     ./clamav
     ./zsh
+    ./gnome
   ];
 
   home.packages = with inputs.pkgs; [

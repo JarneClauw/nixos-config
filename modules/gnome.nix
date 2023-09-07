@@ -3,7 +3,10 @@
 ###
 
 inputs: {
+  ### GNOME DESKTOPMANAGER ###
   services.xserver.desktopManager.gnome.enable = true;
+
+  ### REMOVE DEFAULT PACKAGES ### 
   environment.gnome.excludePackages = with inputs.pkgs.gnome; [
     cheese		# Photo booth
     epiphany		# Web browser

@@ -5,6 +5,7 @@
 inputs: {
   programs.firefox = {
     enable = true;
+
     profiles.${inputs.user} = {
       isDefault = true;
       search.default = "Google";
@@ -15,8 +16,15 @@ inputs: {
   	bitwarden
       ];
 
+      ### SETTINGS NEEDED ###
+  
       bookmarks = [
-	{
+        {
+	  ### WEIRD SOLUTION TO WRAP IT FIRST ... ###
+          name = "test";
+	  toolbar = true;
+	  bookmarks = [
+        {
           name = "UGent";
 	  bookmarks = [
             { name = "Ufora"; url = "https://ufora.ugent.be/d2l/home"; }
@@ -38,7 +46,6 @@ inputs: {
 	    { name = "ChooseALicense"; url = "https://choosealicense.com"; }
 	    {
               name = "CTF";
-	      toolbar = true;
 	      bookmarks = [
                 { name = "VulnHub"; url = "https://vulnhub.com"; }
 		{ name = "OverTheWire"; url = "https://overthewire.org"; }
@@ -79,7 +86,7 @@ inputs: {
 	    { name = "Photo Editor"; url = "https://photopea.com"; }
 	    { name = "12ft Ladder"; url = "https://12ft.io"; }
 	  ];
-	}
+	}];}
       ];
     };
   };
