@@ -22,7 +22,6 @@
       ls = "lsd";
       ll = "lsd -l";
       la = "lsd -la";
-      vim = "nvim";
       scan = "~/scan.sh";
     };
 

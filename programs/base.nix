@@ -26,9 +26,6 @@ inputs: {
     libreoffice
     obsidian
 
-    rsync
     gparted
-    usbutils
-    pciutils
   ];
 }

@@ -5,7 +5,6 @@
 inputs: {
   imports = [
     ./nix.nix
-    ../modules/packages.nix
     ../modules/network.nix
     ../modules/keyboard.nix
     ../modules/touchpad.nix
@@ -14,6 +13,8 @@ inputs: {
     ../modules/printer.nix
     ../modules/fonts.nix
     ../modules/gnome.nix
+    ../modules/backup.nix
+    ../modules/antivirus.nix
   ];
 
   ### USERS ###
