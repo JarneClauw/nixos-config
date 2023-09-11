@@ -27,5 +27,6 @@ inputs: {
     obsidian
 
     gparted
+    pavucontrol
   ];
 }
