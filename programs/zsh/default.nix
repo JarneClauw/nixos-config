@@ -37,6 +37,7 @@
 
     initExtra = ''
       source ~/.p10k.zsh
+      eval "$(direnv hook zsh)"
     '';
   };
 }

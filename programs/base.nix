@@ -16,6 +16,8 @@ inputs: {
   ];
 
   home.packages = with inputs.pkgs; [
+    direnv
+
     tldr
     fzf
     lsd
