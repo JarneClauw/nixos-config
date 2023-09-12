@@ -10,8 +10,16 @@ inputs: {
     updater.enable = true;	# Update freshclam automatically
   };
 
-  # Scan home every night and move infected files to ~/infected/
-  services.cron.systemCronJobs = [
-    "0 0 * * * clamscan -r --quiet --move/home/${inputs.user}/infected /home/${inputs.user}"
-  ];
+  systemd.timers.clamscan = {
+    wantedBy = ["timers.target"];
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true;
+      Unit = "clamscan.service";
+    };
+  };
+
+  systemd.services.clamscan = {
+    script = "${inputs.pkgs.clamav}/bin/clamscan -r --quiet --move=${inputs.home}/infected ${inputs.home}";
+  };
 }
