@@ -40,7 +40,8 @@
       stateVersion = "23.05";
       system = "x86_64-linux";
       user = "jarne";
-      repo = ".dotfiles";
+      home = "/home/${user}";
+      repo = "${home}/.dotfiles";
       dataDir = "/media/data";
 
       # pkgs.<package> or pkgs.unstable.<package> or pkgs.nur.<user>.<package>
@@ -50,7 +51,7 @@
       vscode-extensions = nix-vscode-extensions.extensions.${system};
 
       inputs = {
-        inherit stateVersion system user repo dataDir nixpkgs pkgs home-manager vscode-extensions spicetify;
+        inherit stateVersion system user home repo dataDir nixpkgs pkgs home-manager vscode-extensions spicetify;
       };
     in {
       nixosConfigurations = {

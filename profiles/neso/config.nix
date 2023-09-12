@@ -18,4 +18,7 @@
       efiSysMountPoint = "/boot";
     };
   };
+
+  ### GAMES ###
+  programs.steam.enable = true; 	# Won't work otherwise
 }

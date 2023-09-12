@@ -5,5 +5,6 @@
 inputs: {
   imports = [
     ../../programs/rice.nix
+    ../../programs/games.nix
   ];
-}
+} 
