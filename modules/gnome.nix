@@ -16,7 +16,6 @@ inputs: {
     evince		# Document viewer
     geary		# Email client
     seahorse		# Password manager
-    gnome-calendar
     gnome-characters
     gnome-clocks
     gnome-contacts

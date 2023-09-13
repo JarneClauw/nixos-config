@@ -7,5 +7,6 @@ inputs: {
     mgba    	# GameBoy Advanced emulator
     desmume 	# Nintendo DS emulator
     steam 	# Also enabled in system because ...
+    ckan	# KSP modding
   ];
 }

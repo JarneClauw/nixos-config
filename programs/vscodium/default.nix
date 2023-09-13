@@ -10,6 +10,9 @@ inputs: {
     extensions = with inputs.vscode-extensions; [
       vscode-marketplace.teabyii.ayu
       vscode-marketplace.pkief.material-icon-theme
+      vscode-marketplace.csstools.postcss
+      vscode-marketplace.svelte.svelte-vscode
+      vscode-marketplace.jnoortheen.nix-ide
     ];
 
     # Go to settings, click the wheel icon, select copy ID
@@ -30,6 +33,15 @@ inputs: {
       "security.workspace.trust.startupPrompt" = "never";
       # Don't show a startpage
       "workbench.startupEditor" = "none";
+      # Disable updates
+      "update.mode" = "none";
+      "update.showReleaseNotes" = false;
+      "extensions.autoCheckUpdates" = false;
+      "extensions.autoUpdate" = "none";
+      # Auto pair brackets
+      "editor.linkedEditing" = true;
+      # Svelte TypeScript support
+      "svelte.enable-ts-plugin" = true;
     };
 
     globalSnippets = {
