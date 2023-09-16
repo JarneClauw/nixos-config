@@ -21,7 +21,7 @@ showHelp() {
 scan() {
     # Updating freshclam should be done automatically
     log "Scanning ${1} ..."
-    sudo clamscan --bell --move=/tmp/infected -i -r $1
+    sudo clamscan --bell --move=~/infected -i -r $1
 }
 
 showLogs() {
@@ -30,13 +30,13 @@ showLogs() {
 }
 
 showInfected() {
-    log "Infected files: see '/home/jarne/infected/'"
-    lsd -al /home/jarne/infected/
+    log "Infected files: see '~/infected/'"
+    lsd -al ~/infected/
 }
 
 removeInfected() {
     log "Removing infected files ..."
-    rm -rfv /home/jarne/infected/*
+    rm -rfv ~/infected/*
 }
 
 # Read the options
