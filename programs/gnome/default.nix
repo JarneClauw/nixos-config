@@ -4,7 +4,7 @@
 
 inputs:
   let
-    wallpaper = "file://${inputs.home}/${inputs.repo}/wallpapers/${inputs.wallpaper}";
+    wallpaper = "file://" + ../../wallpapers/${inputs.wallpaper};
   in
     {
       dconf.settings = {
@@ -27,14 +27,14 @@ inputs:
         "org/gnome/desktop/background" = {
           picture-uri = "${wallpaper}";
           picture-uri-dark = "${wallpaper}";
-          primary-color = "#000000000000";
-          secondary-color = "#000000000000";
+          primary-color = "#255000000000";
+          secondary-color = "#255000000000";
         };
 
         "org/gnome/desktop/screensaver" = {
           picture-uri = "${wallpaper}";
-          primary-color = "#000000000000";
-          secondary-color = "#000000000000";
+          primary-color = "#255000000000";
+          secondary-color = "#255000000000";
         };
 
         ### WORKSPACES ###
