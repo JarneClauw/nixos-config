@@ -1,6 +1,8 @@
 ###
 ### Firefox configuration
 ###
+### Finding a way to remove the old config since switching with it throws errors
+###
 
 inputs: {
   programs.firefox = {
@@ -15,14 +17,25 @@ inputs: {
 	youtube-recommended-videos
   	bitwarden
       ];
+      
+      settings = {
+        "browser.tabs.firefox-view" = false; # Remove firefox view
+	"browser.startup.page" = 3; # Restore session
+	"browser.shell.checkDefaultBrowser" = false; # Don't check if default browser
+	"browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false; # Remove shortcuts form newtabpage
+	"extensions.pocket.enabled" = false; # Remove pocket extension
+	"browser.tabs.tabmanager.enabled" = false; # Remove the tabs manager
+        # DRM content
+	# Don't recommend extensions and features as i browse
+	# Remove web search in home
+	# Removing some search shortcuts
+	# Don't ask for a password
+	# Https only
+      };
 
-      ### SETTINGS NEEDED ###
-  
       bookmarks = [
         {
-	  ### WEIRD SOLUTION TO WRAP IT FIRST ... ###
-          name = "test";
-	  toolbar = true;
+          toolbar = true;
 	  bookmarks = [
         {
           name = "UGent";
@@ -63,18 +76,25 @@ inputs: {
 	    { name = "Disney+"; url = "https://disneyplus.com"; }
 	    { name = "Reddit"; url = "https://reddit.com"; }
 	    { name = "PokeOne"; url = "https://pokeonecommunity.com"; }
+	    { name = "NintendoDSROMCollection"; url = "https://archive.org/download/NintendoDSRomCollectionByGhostware"; }
+	  ];
+	}
+        {
+          name = "Package Managers";
+	  bookmarks = [
+            { name = "Nix"; url = "https://search.nixos.org"; }
+	    { name = "NUR"; url = "https://nur.nix-community.org"; }
+	    { name = "Arch"; url = "https://archlinux.org/packages"; }
+	    { name = "AUR"; url = "https://aur.archlinux.org"; }
 	  ];
 	}
 	{
-          name = "Linux";
+          name = "Manuals";
 	  bookmarks = [
-            { name = "Nix Package Manager"; url = "https://search.nixos.org"; }
-	    { name = "NUR"; url = "https://nur.nix-community.org/"; }
-	    { name = "Nix Manual"; url = "https://nixos.org/manual/nix"; }
-	    { name = "NixOS Manual"; url = "https://nixos.org/manual/nixos"; }
-	    { name = "Home-Manager Manual"; url = "https://nix-community.github.io/home-manager"; }
-	    { name = "Arch Package Manager"; url = "https://archlinux.org/packages"; }
-	    { name = "AUR"; url = "https://aur.archlinux.org/"; }
+            { name = "Nix Manual"; url = "https://nixos.org/manual/nix"; }
+	    { name = "Nix Pills"; url = "https://nixos.org/guides/nix-pills"; }
+	    { name = "Nixos Manual"; url = "https://nixos.org/manual/nixos"; }
+	    { name = "HomeManager Manual"; url = "https://nix-community.github.io/home-manager"; }
 	    { name = "Arch Wiki"; url = "https://wiki.archlinux.org"; }
 	  ];
 	}
@@ -86,7 +106,10 @@ inputs: {
 	    { name = "Photo Editor"; url = "https://photopea.com"; }
 	    { name = "12ft Ladder"; url = "https://12ft.io"; }
 	  ];
-	}];}
+	}
+	{ name = "OneDrive"; url = "https://onedrive.live.com"; }
+	{ name = "GoogleDrive"; url = "https://drive.google.com/drive/my-drive"; }
+	];}
       ];
     };
   };

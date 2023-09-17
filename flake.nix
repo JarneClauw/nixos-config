@@ -41,7 +41,7 @@
       system = "x86_64-linux";
       user = "jarne";
       home = "/home/${user}";
-      repo = "${home}/.dotfiles";
+      repo = "${home}/setup";
       dataDir = "/media/data";
 
       # pkgs.<package> or pkgs.unstable.<package> or pkgs.nur.<user>.<package>
