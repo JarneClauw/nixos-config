@@ -17,17 +17,17 @@ inputs: {
 
   home.packages = with inputs.pkgs; [
     direnv
-
+    cpulimit
     tldr
     fzf
     lsd
 
     neovim
     brave
+    firefox # Remove firefox when using the config
     betterbird
     libreoffice
     obsidian
-
     gparted
   ];
 }

@@ -7,7 +7,7 @@ inputs: {
 
   services.clamav = {
     daemon.enable = true; 	# Enable clamd
-    updater.enable = true;	# Update freshclam automatically
+    updater.enable = true;	# Update the database
   };
 
   systemd.timers.clamscan = {
@@ -20,6 +20,6 @@ inputs: {
   };
 
   systemd.services.clamscan = {
-    script = "${inputs.pkgs.clamav}/bin/clamscan -r --quiet --move=${inputs.home}/infected ${inputs.home}";
+    script = "${inputs.pkgs.cpulimit}/bin/cpulimit --limit=25 -- ${inputs.pkgs.clamav}/bin/clamscan --infected --recursive --move=${inputs.home}/infected ${inputs.home}";
   };
 }
