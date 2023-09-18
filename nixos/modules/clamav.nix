@@ -1,5 +1,5 @@
 ###
-### Antivirus configuration
+### Clam AntiVirus configuration
 ###
 
 inputs: {
@@ -10,6 +10,7 @@ inputs: {
     updater.enable = true;	# Update the database
   };
 
+  ### AUTOMATIC SCAN ###
   systemd.timers.clamscan = {
     wantedBy = ["timers.target"];
     timerConfig = {

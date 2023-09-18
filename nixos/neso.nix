@@ -1,20 +1,48 @@
 ###
-### Hardware configuration specific to the neso profile
-###
-### Partition scheme:
-### /boot	1 GiB	ESP
-### /	256 GiB	nixos
-### 	256 GiB data
-### 	8 GiB	swap
+### NixOS configuration for neso
 ###
 
 inputs: {
   imports = [
     (inputs.modulesPath + "/installer/scan/not-detected.nix")
+
+    ./config.nix
+
+    ./modules/bluetooth.nix
+    ./modules/clamav.nix
+    ./modules/fonts.nix
+    ./modules/printer.nix
+    ./modules/restic.nix
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  ### GAMES ###
+  programs.steam.enable = true; 	# Won't work otherwise
+
+  ### BOOTLOADER ###
+  boot.loader = {
+    timeout = 3;			# Wait 3s before auto selection
+    grub = { 				# Grub is mostly set up for dual boot
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true; 		# Find other OSs
+      configurationLimit = 3; 		# Limit of 5 NixOS configurations
+    };
+    efi = { 				# EFI boot
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+  };
+
+  ### HARDWARE ###
+  ### Partition scheme
+  ### /boot	1 GiB		ESP
+  ### /		256 GiB		nixos
+  ### 		256 GiB 	arch
+  ### 		256 GiB 	data
+  ### 		free space
+  ###		8 GiB		swap
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" ];  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -35,8 +63,8 @@ inputs: {
   };
 
   systemd.tmpfiles.rules = [
-    "d /media/data 0777 root root" 			# Give everyone rwx access
-    "L+ /home/${inputs.user}/data - - - - /media/data" 	# Add a symlink for the data partition
+    "d ${inputs.data} 0777 root root" 				# Give everyone rwx access
+    "L+ /home/${inputs.user}/data - - - - ${inputs.data}" 	# Add a symlink for the data partition
   ];
 
   swapDevices = [

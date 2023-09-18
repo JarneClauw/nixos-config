@@ -30,59 +30,15 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
-
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    nur,
-    nix-vscode-extensions,
-    spicetify,
-    sops-nix
-  }:
-    let
-      stateVersion = "23.05";
-      system = "x86_64-linux";
-      user = "jarne";
-      home = "/home/${user}";
-      repo = "${home}/setup";
-      dataDir = "/media/data";
-
-      # pkgs.<package> or pkgs.unstable.<package> or pkgs.nur.<user>.<package>
-      pkgs = import ./lib/pkgs.nix { inherit system nixpkgs nixpkgs-unstable nur; };
-
-      # vscode-extensions.<vscode-marketplace|open-vsx>.<user>.<extension>
-      vscode-extensions = nix-vscode-extensions.extensions.${system};
-
-      inputs = {
-        inherit stateVersion system user home repo dataDir nixpkgs pkgs home-manager vscode-extensions spicetify sops-nix;
-      };
-    in {
-      nixosConfigurations = {
-        neso = let
-	  host = "neso";
-	  inputs-mod = inputs // { inherit host; wallpaper = "bears.png"; };
-	in
-	  nixpkgs.lib.nixosSystem {
-            inherit system;
-	    specialArgs = inputs-mod;
-	    modules = [
-              ./profiles/config.nix
-              ./profiles/neso/config.nix
-	      ./profiles/neso/hardware.nix
-
-	      home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-		home-manager.useUserPackages = true;
-		home-manager.extraSpecialArgs = inputs-mod;
-		home-manager.users.${user}.imports = [
-                  ./profiles/home.nix
-		  ./profiles/neso/home.nix
-		];
-	      }
-	    ];
-	  };
-      };
-    };
+  
+  outputs = inputs: import ./lib/mkNixosProfile.nix rec {
+    host = "neso";
+    system = "x86_64-linux";
+    user = "jarne";
+    home = "/home/${user}";
+    repo = "${home}/setup";
+    data = "/media/data";
+    inherit inputs;
+    stateVersion = "23.05";
+  };
 }

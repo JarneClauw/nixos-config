@@ -1,18 +1,18 @@
-{ system, nixpkgs, nixpkgs-unstable, nur}:
+{ system, stable, unstable, nur}:
 
 let
-  unstable.overlay = final: prev: {
-    unstable = import nixpkgs-unstable {
+  unstable-overlay = final: prev: {
+    unstable = import unstable {
       inherit system;
       config.allowUnfree = true;
     };
   };
 in
-  import nixpkgs {
+  import stable {
     inherit system;
     config.allowUnfree = true;
     overlays = [
-      unstable.overlay
+      unstable-overlay
       nur.overlay
     ];
   }

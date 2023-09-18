@@ -3,10 +3,12 @@
 ###
 
 inputs: {
+  ### PACKAGES ###
   environment.systemPackages = with inputs.pkgs; [
     pavucontrol
   ];
 
+  ### SETTINGS ###
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

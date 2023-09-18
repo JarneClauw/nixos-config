@@ -4,7 +4,7 @@
 
 inputs:
   let
-    wallpaper = "file://" + ../../wallpapers/${inputs.wallpaper};
+    wallpaper = "file://" + ../../wallpapers/bears.png;
   in
     {
       dconf.settings = {
