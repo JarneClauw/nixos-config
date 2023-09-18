@@ -15,5 +15,5 @@ If you want it pure, run "nix develop". "direnv" makes it impure, it loads the e
 4. Run "direnv allow".
 
 # Hosts
-neso    Lenovo laptop
-atlas   MSI laptop
+- neso  : Lenovo laptop
+- atlas : MSI laptop
