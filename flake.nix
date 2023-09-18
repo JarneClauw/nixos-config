@@ -31,14 +31,14 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = inputs: import ./lib/mkNixosProfile.nix rec {
-    host = "neso";
-    system = "x86_64-linux";
+  outputs = inputs: let
     user = "jarne";
     home = "/home/${user}";
     repo = "${home}/setup";
     data = "/media/data";
-    inherit inputs;
     stateVersion = "23.05";
-  };
+    
+    inputs' = inputs // { inherit user home repo data stateVersion; };
+  in
+    import ./lib/mkNixosProfile.nix { host = "neso"; system = "x86_64-linux"; inputs = inputs'; };
 }

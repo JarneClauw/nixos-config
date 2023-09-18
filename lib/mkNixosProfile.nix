@@ -2,10 +2,8 @@
 ### Function to make a nixos profile
 ###
 
-{ host, system, user, home, repo, data, inputs, stateVersion }: let
-  inputs' = import ./inputs.nix (inputs // {
-    inherit host system user home repo data stateVersion;
-  });
+{ host, system, inputs }: let
+  inputs' = import ./inputs.nix (inputs // { inherit host system; });
 in {
   nixosConfigurations.${host} = inputs.nixpkgs.lib.nixosSystem {
     inherit system;
@@ -16,13 +14,13 @@ in {
         home-manager.useGlobalPkgs = true;
 	home-manager.useUserPackages = true;
 	home-manager.extraSpecialArgs = inputs';
-	home-manager.users.${user} = {
+	home-manager.users.${inputs.user} = {
 	  imports = [
             (./. + "/../home/${host}.nix")
 	  ];
-	  home.username = "${user}";
-	  home.homeDirectory = "${home}";
-	  home.stateVersion = "${stateVersion}";
+	  home.username = "${inputs.user}";
+	  home.homeDirectory = "${inputs.home}";
+	  home.stateVersion = "${inputs.stateVersion}";
 	};
       }
     ];
