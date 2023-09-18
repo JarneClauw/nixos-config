@@ -25,6 +25,10 @@
     # Spicetify (Modifies Spotify)
     spicetify.url = "github:the-argus/spicetify-nix";
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Sops-nix handles secrets
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -34,7 +38,8 @@
     home-manager,
     nur,
     nix-vscode-extensions,
-    spicetify
+    spicetify,
+    sops-nix
   }:
     let
       stateVersion = "23.05";
@@ -51,7 +56,7 @@
       vscode-extensions = nix-vscode-extensions.extensions.${system};
 
       inputs = {
-        inherit stateVersion system user home repo dataDir nixpkgs pkgs home-manager vscode-extensions spicetify;
+        inherit stateVersion system user home repo dataDir nixpkgs pkgs home-manager vscode-extensions spicetify sops-nix;
       };
     in {
       nixosConfigurations = {
