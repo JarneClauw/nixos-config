@@ -13,18 +13,16 @@ inputs: {
     ./clamav
     ./zsh
     ./gnome
+    ./neovim
   ];
 
   home.packages = with inputs.pkgs; [
     direnv
     cpulimit
-    age
-    sops
     tldr
     fzf
     lsd
 
-    neovim
     brave
     firefox # Remove firefox when using the config
     betterbird

@@ -6,6 +6,5 @@ inputs: {
   imports = [
     ./modules/base.nix
     ./modules/rice.nix
-    ./modules/games.nix
   ];
 }

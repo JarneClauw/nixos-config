@@ -17,7 +17,7 @@ inputs: let
     Persistent = true; 				# Run backup if you were inactive on triggering
   };
   pruneOpts = ["--keep-daily 7"];		# How many snapshots i want to keep
-  passwordFile = "${inputs.home}/backup-password"; # Repository password is stored in a file
+  passwordFile = "${inputs.home}/backup-password";
 in {
   ### PACKAGES ###
   environment.systemPackages = with inputs.pkgs; [
