@@ -23,8 +23,14 @@ inputs: let
     Persistent = true; 				# Run backup if you were inactive on triggering
   };
   pruneOpts = ["--keep-daily 7"];		# How many snapshots i want to keep
-  passwordFile = "${inputs.home}/backup-password";
 in {
+  ### SOPS ###
+  sops.defaultSopsFile = ../../secrets/default.yaml;
+  sops.age.keyFile = "${inputs.home}/.config/sops/age/keys.txt";
+  sops.secrets.restic = {
+    owner = inputs.config.systemd.services."restic-backups-onedrive".serviceConfig.User;
+  };
+
   ### PACKAGES ###
   environment.systemPackages = with inputs.pkgs; [
     rclone
@@ -35,15 +41,24 @@ in {
   services.restic.backups = {
     onedrive = {
       repository = "rclone:onedrive:data";
-      inherit user initialize paths exclude timerConfig pruneOpts passwordFile;
+      inherit user initialize paths exclude timerConfig pruneOpts;
+      passwordFile = inputs.config.sops.secrets.restic.path;
     };
 
     googledrive = {
       repository = "rclone:googledrive:data";
-      inherit user initialize paths exclude timerConfig pruneOpts passwordFile;
+      inherit user initialize paths exclude timerConfig pruneOpts;
+      passwordFile = inputs.config.sops.secrets.restic.path;
     };
   };
 
-  systemd.services."restic-backups-onedrive".after = [ "network-online.target" ];
-  systemd.services."restic-backups-googledrive".after = [ "network-online.target" ];
+  systemd.services."restic-backups-onedrive" = {
+    after = [ "network-online.target" "sops-nix.service" ];
+    serviceConfig.SupplementaryGroups = [ inputs.config.users.groups.keys.name ];
+  };
+
+  systemd.services."restic-backups-googledrive" = {
+    after = [ "network-online.target" "sops-nix.service" ];
+    serviceConfig.SupplementaryGroups = [ inputs.config.users.groups.keys.name ];
+  };
 }

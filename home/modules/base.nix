@@ -20,6 +20,8 @@ inputs: {
   home.packages = with inputs.pkgs; [
     direnv
     cpulimit
+    age
+    sops
     tldr
     fzf
     lsd
