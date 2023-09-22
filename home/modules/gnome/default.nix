@@ -9,7 +9,7 @@ inputs:
     {
       dconf.settings = {
         ### GENERAL ###
-        "org/gnome/interface" = {
+        "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
 	  enable-hot-corners = false;
 	  show-battery-percentage = true;
@@ -36,6 +36,11 @@ inputs:
           primary-color = "#255000000000";
           secondary-color = "#255000000000";
         };
+
+	### NIGHT LIGHT ###
+	"org/gnome/settings-daemon/plugins/color" = {
+          night-light-enabled = false;
+	};
 
         ### WORKSPACES ###
 	"org/gnome/mutter" = {

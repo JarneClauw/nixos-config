@@ -14,6 +14,7 @@ inputs: {
     ./zsh
     ./gnome
     ./neovim
+    ./redshift
   ];
 
   home.packages = with inputs.pkgs; [
