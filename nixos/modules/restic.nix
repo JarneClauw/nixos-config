@@ -37,4 +37,7 @@ in {
       inherit user initialize paths exclude timerConfig pruneOpts passwordFile;
     };
   };
+
+  systemd.services."restic-backups-onedrive".after = [ "network-online.target" ];
+  systemd.services."restic-backups-googledrive".after = [ "network-online.target" ];
 }

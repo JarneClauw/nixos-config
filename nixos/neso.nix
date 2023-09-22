@@ -15,9 +15,6 @@ inputs: {
     ./modules/restic.nix
   ];
 
-  ### GAMES ###
-  programs.steam.enable = true; 	# Won't work otherwise
-
   ### BOOTLOADER ###
   boot.loader = {
     timeout = 3;			# Wait 3s before auto selection
@@ -56,14 +53,14 @@ inputs: {
     fsType = "vfat";
   };
 
-  fileSystems."/data" = {
+  fileSystems.${inputs.data} = {
     label = "data";
     fsType = "ext4";
     options = [ "nofail" ]; 	# System startup won't crash if it fails to mount
   };
 
   systemd.tmpfiles.rules = [
-    "d ${inputs.data} 0777 root root" 				# Give everyone rwx access
+    "Z ${inputs.data} - ${inputs.user} users" 			# Give everyone rwx access
     "L+ /home/${inputs.user}/data - - - - ${inputs.data}" 	# Add a symlink for the data partition
   ];
 
