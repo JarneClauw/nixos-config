@@ -10,8 +10,14 @@
 inputs: let
   user = "${inputs.user}";			# Will search for rclone config in home directory
   initialize = true;				# Create the directory if it does not exist
-  paths = ["${inputs.data}"];			# Store my data partition
-  exclude = ["${inputs.data}/projects"];	# Exclude projects stored on github
+  paths = [					# Data to store
+    "${inputs.data}"
+  ];
+  exclude = [					# Exclude certain files and folders
+    "${inputs.data}/projects"
+    "${inputs.data}/.Trash*"
+    "${inputs.data}/lost+found"
+  ];
   timerConfig = {
     OnCalendar = "daily"; 			# Run daily
     Persistent = true; 				# Run backup if you were inactive on triggering
