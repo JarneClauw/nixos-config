@@ -23,4 +23,7 @@ inputs: {
   systemd.services.clamscan = {
     script = "${inputs.pkgs.cpulimit}/bin/cpulimit --limit=25 -- ${inputs.pkgs.clamav}/bin/clamscan --infected --recursive --move=${inputs.home}/infected ${inputs.home}";
   };
+
+  # Make sure infected folder is there
+  systemd.tmpfiles.rules = [ "d ${inputs.home}/infected - ${inputs.user} users" ];
 }
