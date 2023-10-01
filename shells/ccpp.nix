@@ -1,5 +1,5 @@
 {
-  description = "Nodejs DevShell";
+  description = "C/C++ DevShell";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -13,12 +13,16 @@
     });
   in {
     devShells = forAllSystems ({ pkgs }: {
-      default = pkgs.mkShell {
+      default = pkgs.mkShell.override {
+        # Empty shell has C compiler, make and other utils by default
+	# We specify to use clang instead
+        stdenv = pkgs.clangStdenv;
+      } {
 	packages = with pkgs; [
-          nodejs
-	  pnpm
-	  nodePackages.prettier
-	  nodePackages.eslint
+	  # Fixes (stdio, stdlib, ...) headers not being found
+	  clang-tools
+          # Packages need in the project
+	  cmake
 	];
       };
     });

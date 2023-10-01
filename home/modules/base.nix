@@ -15,13 +15,14 @@ inputs: {
     ./gnome
     ./neovim
     ./redshift
+    ./direnv
   ];
 
   home.packages = with inputs.pkgs; [
-    direnv
     cpulimit
     age
     sops
+    htop
     tldr
     fzf
     lsd
@@ -31,6 +32,7 @@ inputs: {
     betterbird
     libreoffice
     obsidian
+    xournalpp
     gparted
   ];
 }

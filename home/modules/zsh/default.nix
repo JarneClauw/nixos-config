@@ -23,6 +23,7 @@
       ll = "lsd -l";
       la = "lsd -la";
       vim = "nvim";
+      code = "codium";
       scan = "~/scan.sh";
     };
 
@@ -37,7 +38,6 @@
 
     initExtra = ''
       source ~/.p10k.zsh
-      eval "$(direnv hook zsh)"
     '';
   };
 }

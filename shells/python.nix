@@ -1,11 +1,7 @@
-###
-### Python DevShell
-###
-
 {
   description = "Python DevShell";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }: let
     systems = [ "x86_64-linux" ];
@@ -17,15 +13,14 @@
     });
   in {
     devShells = forAllSystems ({ pkgs }: {
-      default = pkgs.mkShell {
-        shellHook = ''
-          echo "Python DevShell loaded"
-	'';
-
-	packages = with pkgs; [
-          python3
+      default = (pkgs.buildFHSUserEnv {
+        name = "pip-zone";
+	targetPkgs = pkgs: with pkgs; [
+          python310Full
+	  python310Packages.pip
 	];
-      };
+	runScript = "zsh";
+      }).env;
     });
   };
 }
