@@ -27,6 +27,8 @@ inputs: {
     fzf
     lsd
 
+    virt-manager
+
     brave
     firefox # Remove firefox when using the config
     betterbird

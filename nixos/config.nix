@@ -19,7 +19,7 @@ inputs: {
   users.users.${inputs.user} = {
     isNormalUser = true;
     description = "Jarne Clauw";
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" "lp" "scanner" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "lp" "scanner" "libvirtd" ];
   };
 
   ### ENVIRONMENT ###
@@ -27,6 +27,10 @@ inputs: {
   services.xserver.displayManager = {
     gdm.enable = true;
   };
+
+  ### VIRTUALISATION ###
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
   
   ### STATE VERSION ###
   system.stateVersion = "${inputs.stateVersion}";

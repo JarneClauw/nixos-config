@@ -5,7 +5,7 @@
 inputs: {
   programs.vscode = {
     enable = true;
-    package = inputs.pkgs.vscodium;
+    package = inputs.pkgs.unstable.vscodium;
 
     # nix repl
     # :lf github:nix-community/nix-vscode-extensions
@@ -24,6 +24,8 @@ inputs: {
       # C/C++
       vscode-marketplace.llvm-vs-code-extensions.vscode-clangd
       vscode-marketplace.twxs.cmake
+      # Python
+      vscode-marketplace.ms-python.python
     ];
 
     # Go to settings, click the wheel icon, select copy ID
